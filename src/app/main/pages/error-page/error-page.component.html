@@ -1,0 +1,15 @@
+<div class="wrapper gl-page-content gl-font-sf-pro-display">
+  <div class="title">
+    {{ 'PAGES.ERROR_PAGE.TITLE' | translate }}
+  </div>
+
+  <div class="error-number">
+    {{ errorNumber$ | async }}
+  </div>
+
+  <button type="button"
+          class="gl-black-btn btn"
+          (click)="bntClick()">
+    {{ 'PAGES.ERROR_PAGE.BTN' | translate }}
+  </button>
+</div>

@@ -1,0 +1,35 @@
+@import 'sizes';
+@import 'extends';
+
+:host {
+  display: block;
+}
+
+.gallery-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @include for-bg-down {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include for-sm-down {
+    grid-template-columns: 1fr;
+  }
+}
+
+.image-wrapper {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  @extend %skeleton;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+}

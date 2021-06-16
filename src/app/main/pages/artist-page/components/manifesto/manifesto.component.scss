@@ -1,0 +1,21 @@
+.manifesto-wrapper {
+  margin-bottom: -10px;
+
+  ::ng-deep {
+    .MsoNormal {
+      font-size: 16px !important;
+      line-height: 28px !important;
+      letter-spacing: 1px !important;
+      margin: 0 0 10px 0 !important;
+      background: transparent !important;
+      text-indent: 0 !important;
+      word-break: break-word !important;
+
+      span {
+        font-family: 'sf-pro-display', sans-serif !important;
+        font-size: 16px !important;
+        color: #000 !important;
+      }
+    }
+  }
+}

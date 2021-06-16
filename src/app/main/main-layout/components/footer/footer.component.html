@@ -1,0 +1,43 @@
+<footer class="footer-wrapper"
+        [ngStyle]="{height: (footerHeight$ | async) + 'px'}">
+  <div class="content-wrapper gl-page-content">
+    <div itemscope itemtype="http://schema.org/SiteNavigationElement"
+         class="links-wrapper">
+      <a itemprop="url" class="item-bar gl-font-sf-pro-text"
+         [routerLink]="(['/', pageNameEnum.TopArtists] | dynamicLink) | async">
+        {{ 'MENU.TOP_ARTISTS' | translate }}
+      </a>
+      <a itemprop="url" class="item-bar gl-font-sf-pro-text"
+         [routerLink]="(['/', pageNameEnum.TopPaintings] | dynamicLink) | async">
+        {{ 'MENU.TOP_PAINTINGS' | translate }}
+      </a>
+      <a itemprop="url" class="item-bar gl-font-sf-pro-text"
+         [routerLink]="(['/', pageNameEnum.Artists] | dynamicLink) | async">
+        {{ 'MENU.ARTISTS_GALLERY' | translate }}
+      </a>
+      <a itemprop="url" class="item-bar gl-font-sf-pro-text"
+         [routerLink]="(['/', pageNameEnum.News] | dynamicLink) | async">
+        {{ 'MENU.NEWS_FEED' | translate }}
+      </a>
+      <a itemprop="url" class="item-bar gl-font-sf-pro-text"
+         [routerLink]="(['/', pageNameEnum.AboutProject] | dynamicLink) | async">
+        {{ 'MENU.ABOUT_PROJECT' | translate }}
+      </a>
+      <a itemprop="url" class="item-bar gl-font-sf-pro-text"
+         [routerLink]="(['/', pageNameEnum.Business] | dynamicLink) | async">
+        {{ 'MENU.ARTHALL_BUSINESS' | translate }}
+      </a>
+      <a itemprop="url" class="item-bar gl-font-sf-pro-text"
+         [routerLink]="(['/', pageNameEnum.Join] | dynamicLink) | async">
+        {{ 'MENU.JOIN' | translate }}
+      </a>
+    </div>
+
+    <!--   раскоментить, когда появятся ссылки -->
+    <!--    <div class="social-wrapper gl-fl-hide">-->
+    <!--      <a itemprop="url" class="social-item gl-social-item mod-facebook" href="" target="_blank"></a>-->
+    <!--      <a itemprop="url" class="social-item gl-social-item mod-inst" href="" target="_blank"></a>-->
+    <!--      <a itemprop="url" class="social-item gl-social-item mod-youtube" href="" target="_blank"></a>-->
+    <!--    </div>-->
+  </div>
+</footer>

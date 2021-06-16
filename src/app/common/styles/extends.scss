@@ -1,0 +1,26 @@
+%skeleton {
+  position: relative;
+  background-color: #d2d2d287;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 300px;
+    background: linear-gradient(to right, transparent 0%, #ffffff 50%, transparent 100%);
+    animation: load 2s ease-in infinite;
+  }
+}
+
+@keyframes load {
+  from {
+    left: -300px;
+  }
+  to {
+    left: 100%;
+  }
+}

@@ -1,0 +1,72 @@
+@import 'consts';
+@import 'colors';
+@import 'sizes';
+
+.gl-modal-wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: $background-outlet;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: $z-index-modal;
+}
+
+.gl-modal-container {
+  background-color: $main-background-window;
+  position: relative;
+}
+
+.gl-main-btn-close {
+  position: absolute;
+  top: -2px;
+  right: -42px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  background-image: url('/assets/icons/common/close-btn/close-btn-black.svg');
+
+  &.mod-white {
+    background-image: url('/assets/icons/common/close-btn/close-btn-white.svg');
+  }
+
+  @include for-sm-down {
+    top: 6px;
+    right: 6px;
+    width: 40px;
+    height: 40px;
+    background-image: none !important;
+
+    &:before {
+      position: absolute;
+      content: '';
+      width: 10px;
+      height: 10px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-image: url('/assets/icons/common/close-btn/close-btn-black.svg');
+      z-index: 2;
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #989898;
+      border-radius: 100%;
+      z-index: 1;
+    }
+
+    &.mod-white {
+      &:before {
+        background-image: url('/assets/icons/common/close-btn/close-btn-white.svg');
+      }
+    }
+  }
+}

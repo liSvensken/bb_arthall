@@ -1,0 +1,137 @@
+@import 'sizes';
+@import 'colors';
+
+$input-width: 342px;
+
+.text-wrapper {
+  margin-bottom: 72px;
+
+  @include for-sm-down {
+    margin-bottom: 24px;
+  }
+}
+
+.form-wrapper {
+  width: 618px;
+
+  @include for-sm-down {
+    width: 100%;
+  }
+}
+
+.form-title {
+  font-weight: 500;
+  font-size: 20px;
+  padding-bottom: 26px;
+  position: relative;
+  margin-bottom: 32px;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 162px;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    background-color: #000;
+  }
+
+  @include for-sm-down {
+    text-align: center;
+    padding-bottom: 0;
+    padding-top: 26px;
+
+    &:before {
+      top: 0;
+      bottom: auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.control-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & + & {
+    margin-top: 40px;
+  }
+
+  @include for-sm-down {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+.input-caption {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-right: 20px;
+  max-width: 222px;
+  line-height: 20px;
+
+  @include for-sm-down {
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+}
+
+.input-wrapper {
+  width: $input-width;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
+  &.mod-error {
+    border-color: #ff0000;
+  }
+
+  @include for-sm-down {
+    width: 100%;
+  }
+}
+
+.input {
+  width: 100%;
+  height: 34px;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+
+  &::placeholder {
+    color: $placeholder;
+  }
+
+  &:focus, &.mod-active {
+    border-bottom-color: #000;
+  }
+}
+
+.error-control {
+  position: absolute;
+  height: 0;
+  margin-top: 8px;
+  color: #ff0000;
+  overflow: hidden;
+  transition: height 400ms;
+  font-size: 14px;
+
+  &.mod-show {
+    height: 18px;
+  }
+}
+
+.bnt-join-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-join {
+  width: $input-width;
+
+  @include for-xs-down {
+    width: 100%;
+  }
+}

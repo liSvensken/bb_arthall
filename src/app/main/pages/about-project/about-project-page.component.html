@@ -1,0 +1,28 @@
+<div class="gl-page-wrapper gl-page-content" appScrollPage>
+  <h1 class="gl-title-page">
+    {{ 'PAGES.ABOUT_PROJECT_PAGE.SUBTITLE' | translate }}
+  </h1>
+
+  <div itemscope itemtype="http://schema.org/BreadcrumbList" class="gl-path-link-wrapper">
+    <a itemscope itemtype="http://schema.org/ListItem"
+       itemprop="itemListElement" class="gl-bread-crumbs"
+       [routerLink]="(['/'] | dynamicLink) | async">
+      <span itemprop="name">ArtHall</span>
+    </a>
+    /
+    <a itemscope itemtype="http://schema.org/ListItem"
+       itemprop="itemListElement" class="gl-bread-crumbs mod">
+      <span itemprop="name">{{ 'PAGES.ABOUT_PROJECT_PAGE.SUBTITLE' | translate }}</span>
+    </a>
+  </div>
+
+  <ng-container *ngFor="let textBlock of textBlocksI18n">
+    <ng-container *ngFor="let lang of textBlock.lang">
+      <ng-container data-data-*ngIf="lang === (lang$ | async)">
+        <p class="gl-paragraph-wrapper gl-text">
+          {{ textBlock.value | translate }}
+        </p>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</div>

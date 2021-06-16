@@ -1,0 +1,102 @@
+@import 'sizes';
+@import 'colors';
+
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.application-fl-wrapper {
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.application-content {
+  max-width: 182px;
+  position: relative;
+}
+
+.application-list-wrapper {
+  letter-spacing: -0.3px;
+  padding-bottom: 14px;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 54px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.application-list-caption {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.application-list-item {
+  font-size: 14px;
+  padding-left: 14px;
+  position: relative;
+
+  & + & {
+    margin-top: 8px;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: $application-dot-list;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+}
+
+.application-qr-wrapper {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.application-qr-caption {
+  font-weight: 300; // todo загрузить шрифт
+  font-size: 12px;
+  letter-spacing: -0.3px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.application-qr-image {
+  width: 74px;
+  height: 74px;
+}
+
+.phone-image {
+  position: absolute;
+  background-image: url('/assets/images/application/phone-hidden-2.png');
+  right: -14px;
+  bottom: -22px;
+  width: 254px;
+  height: 418px;
+  background-size: 106%;
+
+  &.mod-full-phone {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 235px;
+    height: 432px;
+    background-image: url('/assets/images/application/phone-full.png');
+  }
+}

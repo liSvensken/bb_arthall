@@ -1,0 +1,73 @@
+<div class="gl-page-wrapper" appScrollPage>
+  <div class="top-block-wrapper gl-page-content">
+    <div>
+      <h1 class="gl-title-page">
+        {{ 'PAGES.BUSINESS_PAGE.SUBTITLE' | translate }}
+      </h1>
+
+      <div itemscope itemtype="http://schema.org/BreadcrumbList"
+           class="gl-path-link-wrapper">
+        <a itemscope itemtype="http://schema.org/ListItem"
+           itemprop="itemListElement" class="gl-bread-crumbs"
+           [routerLink]="(['/'] | dynamicLink) | async">
+          <span itemprop="name">ArtHall</span>
+        </a>
+        /
+        <a itemscope itemtype="http://schema.org/ListItem"
+           itemprop="itemListElement"
+           class="gl-bread-crumbs">
+          <span itemprop="name">{{ 'PAGES.BUSINESS_PAGE.SUBTITLE' | translate }}</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="gl-page-content">
+    <div class="text-wrapper">
+      <ng-container *ngFor="let textBlock of textBlocksI18n">
+        <ng-container *ngFor="let lang of textBlock.lang">
+          <ng-container data-data-*ngIf="lang === (lang$ | async)">
+            <p class="gl-paragraph-wrapper">
+              {{ textBlock.value | translate }}
+            </p>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="grid-wrapper gl-page-content">
+    <div *ngFor="let video of (videos$ | async)[lang$ | async]; let i = index"
+         class="grid-item">
+      <a class="video-link-wrapper gl-painting-hover-wrapper"
+         [href]="video.youtube" target="_blank">
+        <span class="cover-art-wrapper">
+          <img [src]="video.logo"
+               [class.gl-fake]="!video.logo"
+               (error)="onErrorImage(i)"
+               class="cover-art"
+               [alt]="'video' + video.title">
+        </span>
+        <div class="caption gl-painting-hover-caption">
+          {{ video.title }}
+        </div>
+      </a>
+      <div class="links-wrapper">
+        <a data-data-*ngIf="video.youtube"
+           class="link mod-youtube"
+           [href]="video.youtube" target="_blank">
+        </a>
+        <a data-data-*ngIf="video.mp4"
+           class="link mod-mp4"
+           [href]="video.mp4" target="_blank">
+          MP4
+        </a>
+        <a data-data-*ngIf="video.mov"
+           class="link mod-mov"
+           [href]="video.mov" target="_blank">
+          MOV
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

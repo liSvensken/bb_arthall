@@ -1,0 +1,18 @@
+@import 'sizes';
+@import 'consts';
+
+.main-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  @include for-sm-down {
+    &.open-side-bar {
+      display: none;
+    }
+  }
+}
+
+.content-wrapper {
+  flex: 1 1 100%;
+}

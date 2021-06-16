@@ -1,0 +1,22 @@
+<div #fullScreenWrapper class="wrapper">
+  <img #imageFullScreen [src]="apiBaseUrl + paintingData.watermark_file"
+       itemprop="image" class="image">
+
+  <div class="btn-wrapper">
+    <button (click)="clickBtnZoom(true)"
+            class="btn-size"
+            type="button">
+      <img class="btn-size-image mod-zoom" src="/assets/icons/painting-modal/btn-zoom.svg" alt="">
+    </button>
+    <button (click)="clickBtnZoom(false)"
+            class="btn-size"
+            type="button">
+      <img class="btn-size-image mod-out" src="/assets/icons/painting-modal/btn-out.svg" alt="">
+   </button>
+  </div>
+
+  <button type="button"
+          class="btn-close gl-main-btn-close mod-white"
+          (click)="closeFullScreen()">
+  </button>
+</div>

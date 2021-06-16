@@ -1,0 +1,57 @@
+<div (click)="clickSideBarWrapper($event)"
+     class="side-bar-wrapper"
+     [class.mod-open]="isOpenSideBarInput">
+  <div class="side-bar-container" #sideBarContainer>
+    <div class="header-wrapper">
+      <div class="gl-logo-title gl-font-sf-pro-rounded gl-sm-show">
+        ArtHall
+      </div>
+      <button type="button"
+              class="btn-close gl-btn-close"
+              (click)="onCloseSideBar()">
+      </button>
+    </div>
+
+    <app-side-bar-body [hidden]="!(isOpenedMenu$ | async)"
+                       [currentLang]="(lang$ | async)"
+                       (isOpenLangToggle)="toggleLangWindow()">
+    </app-side-bar-body>
+
+    <app-toggle-lang [hidden]="isOpenedMenu$ | async"
+                     [currentLang]="(lang$ | async)"
+                     (_isCloseLangToggle)="toggleLangWindow()"
+                     (_changeLang)="changeLang($event)">
+    </app-toggle-lang>
+
+    <div class="application-wrapper">
+      <app-application *ngIf="isOpenSideBarInput"></app-application>
+    </div>
+
+    <div class="application-link-wrapper">
+      <a *ngIf="operatingSystem === operatingSystemNamesEnum.Ios"
+         itemprop="url" class="gl-application-link gl-sm-show"
+         href="" target="_blank">
+        <span *ngIf="isOpenSideBarInput"
+              class="gl-application-link-image"
+              [class.mod-market-ios-en]="(lang$ | async) === langEnum.En"
+              [class.mod-market-ios-ru]="(lang$ | async) === langEnum.Ru">
+        </span>
+      </a>
+      <a *ngIf="operatingSystem === operatingSystemNamesEnum.Android ||
+                  operatingSystem === operatingSystemNamesEnum.Browser"
+         itemprop="url" class="gl-application-link gl-sm-show"
+         href="" target="_blank">
+        <span class="gl-application-link-image mod-market-android"></span>
+      </a>
+    </div>
+
+    <!--   раскоментить, когда появятся ссылки -->
+<!--    <div class="social-wrapper gl-sm-show">-->
+<!--      <a itemprop="url" class="social-item gl-social-item mod-facebook" href="https://www.google.ru/" target="_blank"></a>-->
+<!--      <a itemprop="url" class="social-item gl-social-item mod-twitter" href="https://www.google.ru/" target="_blank"></a>-->
+<!--      <a itemprop="url" class="social-item gl-social-item mod-inst" href="https://www.instagram.com/" target="_blank"></a>-->
+<!--      <a itemprop="url" class="social-item gl-social-item mod-youtube" href="https://www.youtube.com/" target="_blank"></a>-->
+<!--    </div>-->
+  </div>
+</div>
+

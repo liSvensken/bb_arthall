@@ -1,0 +1,90 @@
+@import 'sizes';
+@import 'extends';
+
+$photoHeight: 182px;
+
+.list-wrapper {
+  & + & {
+    margin-top: 20px;
+  }
+}
+
+.caption-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+
+  @include for-sm-down {
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 27px
+  }
+}
+
+.caption-value {
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.408px;
+  color: rgba(0, 0, 0, 0.3);
+  margin-right: 8px;
+
+  @include for-sm-down {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.caption-band {
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  opacity: 0.2;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 30px 20px;
+
+  @include for-bg-down {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include for-sm-down {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include for-xs-down {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.artist-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.artist-photo {
+  width: 100%;
+  height: $photoHeight;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 12px;
+
+  @include for-xxs-down {
+    max-height: $photoHeight;
+  }
+
+  &.mod-skeleton {
+    @extend %skeleton;
+  }
+}
+
+.artist-name {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.3px;
+  transition: color 200ms;
+  text-align: center;
+}

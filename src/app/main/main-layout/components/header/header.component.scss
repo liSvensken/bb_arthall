@@ -1,0 +1,40 @@
+@import 'colors';
+@import 'sizes';
+
+:host {
+  border-bottom: 1px solid $main-border-rgba;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  background-color: #fff;
+  margin-right: calc(-1 * (100vw - 100%));
+
+  @include for-sm-down {
+    border-bottom: none;
+  }
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-block {
+  display: flex;
+  align-items: flex-end;
+}
+
+.logo-caption {
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  line-height: 43px;
+}
+
+.right-block {
+  display: flex;
+  align-items: center;
+}

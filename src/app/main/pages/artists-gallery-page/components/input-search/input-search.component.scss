@@ -1,0 +1,74 @@
+@import 'colors';
+@import 'sizes';
+
+:host {
+  @include for-sm-down {
+    width: 100%;
+  }
+}
+
+.input-search-wrapper {
+  display: block;
+  border: 1px solid $input-border;
+  border-radius: 60px;
+  padding: 10px 24px 10px 38px;
+  width: 110px;
+  position: relative;
+  transition: width 200ms, border 400ms, box-shadow 400ms;
+  cursor: pointer;
+
+  @include for-sm-down {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: rgba(118, 118, 128, 0.12);
+  }
+
+  &.mod-focus, &.mod-value {
+    width: 320px;
+    cursor: auto;
+
+    @include for-sm-down {
+      width: auto;
+    }
+  }
+
+  &.mod-focus {
+    border: 1px solid #6cd3ff;
+    box-shadow: 0 0 4px #bcebff;
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 24px;
+    height: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    background-image: url('/assets/icons/artists-gallery/serch.svg');
+  }
+}
+
+.input-search {
+  font-size: 16px;
+  width: 100%;
+
+  @include for-sm-down {
+    background-color: transparent;
+  }
+}
+
+.input-search-placeholder {
+  color: $placeholder;
+  width: min-content;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 38px;
+
+  &.mod-hide {
+    display: none;
+  }
+}

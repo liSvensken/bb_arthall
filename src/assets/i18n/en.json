@@ -1,0 +1,160 @@
+{
+  "HEADER": {
+    "TITLE": "Online art gallery ArtHall",
+    "LANG": "Language"
+  },
+  "MENU": {
+    "TOP_ARTISTS": "Top artists",
+    "TOP_PAINTINGS": "Top paintings",
+    "ARTISTS_GALLERY": "Artists in the gallery",
+    "NEWS_FEED": "News Feed",
+    "ABOUT_PROJECT": "About the project",
+    "ARTHALL_BUSINESS": "Arthall business",
+    "JOIN": "Join Arthall"
+  },
+  "SIDE_BAR": {
+    "QR_CAPTION": "To install the app, scan the QR code",
+    "LANG": {
+      "CAPTION": "Language",
+      "VALUE": "English"
+    },
+    "BACK": "Back"
+  },
+  "APPLICATION_MODAL": {
+    "LIST_CAPTION": "More features in the ArtHall app",
+    "LIST": {
+      "AWARDS": "Awards",
+      "PERSONAL_GALLERIES": "Personal galleries",
+      "SUBSCRIPTION": "Subscribe to artists",
+      "ARTIST_FILTER": "Artist filter",
+      "SELECTING_TOPIC": "Selecting a topic"
+    }
+  },
+  "SUBSCRIPTION_MODAL": {
+    "TITLE": "Stay informed!",
+    "MAIN_CONTENT_TEXT": "Be the first to learn about the latest news from the world of fine arts",
+    "ADDITIONAL_CONTENT_TEXT": "Click “Allow”",
+    "BTN_SUBSCRIBE": "Subscribe",
+    "SUCCESSFUL_SUBSCRIPTION": "You have successfully subscribed to notifications!",
+    "UNSUBSCRIBE_SUBSCRIPTION": "You refused the notifications",
+    "BTN_CONTINUE": "Continue"
+  },
+  "PAGES": {
+    "SLIDER_PAGE": {
+      "META_TITLE": "Online art gallery of contemporary art ArtHall",
+      "META_DESCRIPTION": "Virtual art exhibition ArtHall with the life story and works of the best contemporary artists in your mobile app. Discover contemporary art from the comfort of your home!"
+    },
+    "TOP_PAGE": {
+      "CAPTION": "based on the votes of ArtHall users",
+      "RATING": "Rating"
+    },
+    "TOP_ARTISTS_PAGE": {
+      "SUBTITLE": "Top artists",
+      "META_TITLE": "Top artists of the ArtHall project",
+      "META_DESCRIPTION": "The best contemporary artists based on the votes of users of the Art Hall project"
+    },
+    "TOP_PAINTINGS_PAGE": {
+      "SUBTITLE": "Top paintings",
+      "META_TITLE": "Top paintings of the ArtHall project",
+      "META_DESCRIPTION": "The best paintings by contemporary artists based on the votes of users of the Art Hall project"
+    },
+    "ARTISTS_GALLERY_PAGE": {
+      "SUBTITLE": "Artists in the gallery",
+      "SEARCH": "Search",
+      "META_TITLE": "The best contemporary artists selected by the curators of the ArtHall project",
+      "META_DESCRIPTION": "Gallery of contemporary artists of the ArtHall project"
+    },
+    "ARTIST_PAGE": {
+      "GALLERY": "Gallery",
+      "MANIFEST": "Manifest",
+      "PICTURES": "Pictures",
+      "META_TITLE": " - the life story and gallery of the artist's works",
+      "META_DESCRIPTION": "- discover the paintings and biography of the contemporary artist "
+    },
+    "NEWS_LIST_PAGE": {
+      "SUBTITLE": "News Feed",
+      "META_TITLE": "ArtHall news",
+      "META_DESCRIPTION": "Contemporary art news",
+      "BTN_READ": "View",
+      "NEWS_TYPE": {
+        "STORY": "Story",
+        "ARTICLE": "Article",
+        "ARTIST": "Artist"
+      }
+    },
+    "ABOUT_PROJECT_PAGE": {
+      "SUBTITLE": "About the project",
+      "META_TITLE": "About the project of the online art gallery ArtHall",
+      "META_DESCRIPTION": "The project of the virtual art exhibition ArtHall was created so that users can get acquainted with the works of contemporary artists without leaving their homes on the website or in a mobile application, and talented artists can join the project and express themselves",
+      "CONTENT": {
+        "BLOCK_1": "ArtHall-modern art is an online contemporary art gallery that has built its own mobile app.",
+        "BLOCK_2": "This is where one can learn about the works of talented contemporary artists from all over the world. This virtual exhibition gives them an unprecedented opportunity to have a voice and be heard, despite the closure of borders and other restrictions. For the rest, our project is a source of inspiration, aesthetic and spiritual pleasure. We are doing everything to ensure that the immersion in art is exciting and infinite.",
+        "BLOCK_3": "The ArtHall mobile app makes walking around the virtual gallery more comfortable. The user-friendly interface and broad functionality of the app open up a whole range of possibilities for users. Thus, one can rate all paintings on a five-point scale, save one’s best-loved works in their personal gallery and subscribe to favorite painters. The app also enables users to get to know artists better through the description of their creative path, and the app’s search system helps to filter the works of art based on specified themes of paintings. ",
+        "BLOCK_4": "What makes ArtHall special is an automatic  step-by-step adjustment of the gallery in accordance with the user’s preferences. The works are also available for download to mobile devices and can be shared with friends. The virtual art exhibition ArtHall-modern art is continuously replenished with the best works of contemporary artists and one can learn about it with notifications.",
+        "BLOCK_5": "If you want to join the ArtHall-modern art community of artists and post your paintings on our website or in a mobile app, then all you need to do is fill out a simple online form, providing the name and a link to your works, and also telling about your field of creative interests and path in the art.",
+        "BLOCK_6": "Share your talent, find out about fashion trends and get inspired with ArtHall!"
+      }
+    },
+    "BUSINESS_PAGE": {
+      "SUBTITLE": "ArtHall for business",
+      "META_TITLE": "Replace TV for restaurants with a video collection of paintings by contemporary artists",
+      "META_DESCRIPTION": "Owners of cafes and restaurants, do you want to attract the attention of visitors with unusual video content on TV screens and create a unique atmosphere? We suggest replacing the usual video content for cafes with our videos with original works of modern art",
+      "CONTENT":  {
+        "BLOCK_1": "Do you want to attract the attention of visitors with unusual video content on the screens of restaurants and create a unique atmosphere? We suggest replacing monotonous fashion shows and intrusive advertisements with a series of works of contemporary art.",
+        "BLOCK_2": "ArtHall-modern art is a virtual art exhibition featuring works by talented contemporary artists from around the world. ",
+        "BLOCK_3": "When viewing these paintings, visitors are expected to receive aesthetic pleasure and expand their knowledge of contemporary art so that they can share it with friends and thereby attract new customers to your restaurant or cafe. Especially for you, we have created stylish videos with the works of artists of the 21st century and posted them on Youtube.",
+        "BLOCK_4": "TV content in restaurants and cafes influences customer satisfaction with service and ambience, duration and loyalty. The videos we have created with original works of contemporary art are suitable for showing them in various types of eateries.",
+        "BLOCK_5": "Firstly, this business solution emphasizes the subtle and sophisticated nature of the restaurant, cafe and coffee shop, and maintains a pleasant atmosphere that makes others stay longer and enjoy it.",
+        "BLOCK_6": "Secondly, our videos are able to keep the attention of visitors as long as possible, since they combine works of different genres and topics: shocking paintings, cityscapes and still lifes. The more visitors are keen on broadcasting on TV in restaurants, the more time and money they want to spend there and the more willingly they visit the place again.",
+        "BLOCK_7": "Thirdly, showing the masterpieces of contemporary art on television will not let the client get bored while waiting for a meal, which lasts from 15 to 30 minutes. Finally, unlike movies, music videos and news, you can stream our videos legally without fear of liability for the use of someone else's intellectual property.",
+        "BLOCK_8": "To display this video content, you can download our videos from the links absolutely free of charge or visit our  Youtube channel. Show your clients the best works of contemporary artists. Make their stay at your restaurant more interesting, informative and longer!"
+      },
+      "VIDEO_NAMES": {
+        "VIDEO_1": "Top pictures of 2020",
+        "VIDEO_2": "Top pictures of 2020",
+        "VIDEO_3": "Nikolay Kopeikin, the best",
+        "VIDEO_4": "Young artists of Russia"
+      }
+    },
+    "JOIN_PAGE": {
+      "SUBTITLE": "Join Arthall",
+      "META_TITLE": "Aspiring artists, join the ArtHall project and declare yourself!",
+      "META_DESCRIPTION": "We invite aspiring artists to join our project and make themselves known to the whole world. To get to our gallery, you need to fill out the form on the page and provide a link to your works",
+      "TEXT": "If you want to join the ArtHall community of artists and post your paintings on our website or in the mobile app, then all you have to do is fill out a simple online form, specify the name and link to your work, as well as tell us about your creative interests and path to art.",
+      "FORM": {
+        "TITLE": "Ready to publish your works?",
+        "NAME": {
+          "CAPTION": "Your name",
+          "PLACEHOLDER": "Enter your name",
+          "ERRORS": {
+            "REQUIRED": "Enter a name"
+          }
+        },
+        "EMAIL": {
+          "CAPTION": "Your email address",
+          "PLACEHOLDER": "Enter your email address",
+          "ERRORS": {
+            "REQUIRED": "Enter your email address",
+            "EMAIL": "Invalid format"
+          }
+        },
+        "WORKS": {
+          "CAPTION": "Link to your works (FaceBook, Instagram, etc)",
+          "PLACEHOLDER": "Enter the link",
+          "ERRORS": {
+            "REQUIRED": "Enter the link"
+          }
+        },
+        "BTN": "Join"
+      }
+    },
+    "ERROR_PAGE": {
+      "TITLE": "An error occurred",
+      "BTN": "Go to the main page"
+    }
+  },
+  "ALT": {
+    "PAINTING": "Painting",
+    "ARTIST": "Artist"
+  }
+}

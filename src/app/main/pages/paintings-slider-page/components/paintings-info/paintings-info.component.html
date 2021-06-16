@@ -1,0 +1,28 @@
+<div class="description-info-wrapper">
+  <a class="artist-name-wrapper"
+     [routerLink]="(['/', pageNameEnum.Artists, painting.artist.url || painting.artist.id ] | dynamicLink) | async">
+    <div class="artist-name gl-font-sf-pro-text"
+         [class.gl-country]="painting.artist.country">
+      <span data-data-*ngIf="painting.artist.country"
+            class="gl-flag"
+            [ngStyle]="{ backgroundImage: 'url(' + painting.artist.country + ')' }">
+      </span>
+      <div data-data-*ngIf="painting.artist.country"
+           class="gl-flag"
+           [ngStyle]="{ backgroundImage: 'url(' + painting.artist.country + ')' }">
+      </div>
+      <span itemprop="author">
+        {{ painting.artist['name_' + lang] }}
+      </span>
+    </div>
+  </a>
+
+  <div itemprop="name"
+       class="painting-info gl-font-new-york-large">
+    “{{ painting['title_' + lang] }}”
+  </div>
+  <div itemprop="description"
+       class="painting-info gl-font-new-york-large">
+    {{ painting['additional_info_' + lang] }}
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<label class="input-search-wrapper"
+       [class.mod-focus]="focusSearch$ | async"
+       [class.mod-value]="searchControl.value">
+  <input [formControl]="searchControl"
+         (focus)="toggleFocusSearch()"
+         (blur)="toggleFocusSearch()"
+         class="input-search"
+         type="text">
+  <span class="input-search-placeholder"
+        [class.mod-hide]="(focusSearch$ | async) || searchControl.value">
+        {{ 'PAGES.ARTISTS_GALLERY_PAGE.SEARCH' | translate }}
+      </span>
+</label>

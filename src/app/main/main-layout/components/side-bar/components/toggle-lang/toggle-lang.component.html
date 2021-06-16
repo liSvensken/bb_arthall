@@ -1,0 +1,26 @@
+<div class="block-toggle-lang-wrapper">
+  <div class="bnt-back-wrapper">
+    <button (click)="closeLangToggle()"
+            class="btn-back"
+            type="button">
+      {{ 'SIDE_BAR.BACK' | translate }}
+    </button>
+  </div>
+
+  <div class="btns-lang-wrapper">
+    <div class="lang-caption">
+      {{ 'SIDE_BAR.LANG.CAPTION' | translate }}
+    </div>
+    <div *ngFor="let langModel of (langModels$ | async)" class="bnt-lang-wrapper">
+      <a class="bnt-lang gl-country mod-toggle"
+         [class.mod-active]="currentLang === langModel.value"
+         [routerLink]="(langModel.urlParam | linkForChangeLangPipe) | async"
+         (click)="changeLang(langModel.value)">
+            <span class="gl-flag"
+                  [ngClass]="'mod-' + langModel.value">
+            </span>
+        {{ langModel.name }}
+      </a>
+    </div>
+  </div>
+</div>

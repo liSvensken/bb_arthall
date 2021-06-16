@@ -1,0 +1,71 @@
+<ng-container data-*ngIf="{
+  lang: lang$ | async,
+  news: news$ | async
+} as data;">
+  <div class="wrapper" appScrollPage>
+    <div class="gl-sm-show gl-page-content">
+      <div class="gl-title-page">
+        {{ 'PAGES.NEWS_LIST_PAGE.SUBTITLE' | translate }}
+      </div>
+
+      <div itemscope itemtype="http://schema.org/BreadcrumbList"
+           class="gl-path-link-wrapper">
+        <a itemscope itemtype="http://schema.org/ListItem"
+           itemprop="itemListElement" class="gl-bread-crumbs"
+           [routerLink]="(['/'] | dynamicLink) | async">
+          <span itemprop="name">ArtHall</span>
+        </a>
+        /
+        <a itemscope itemtype="http://schema.org/ListItem"
+           itemprop="itemListElement" class="gl-bread-crumbs"
+           [routerLink]="(['/', pageNameEnum.News] | dynamicLink) | async">
+          <span itemprop="name">{{ 'PAGES.NEWS_LIST_PAGE.SUBTITLE' | translate }}</span>
+        </a>
+        /
+        <a itemscope itemtype="http://schema.org/ListItem"
+           itemprop="itemListElement"
+           class="gl-bread-crumbs">
+          <span itemprop="name">{{ data.news['title_' + data.lang] }}</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="header-wrapper"
+         [ngStyle]="{ backgroundImage: 'url(' + data.news.title_image + ')'}">
+      <div class="gl-page-content">
+        <div class="header-content">
+          <div>
+            <h1 class="title gl-page-content page-content"
+                [class.gl-font-sf-pro-text]="(matchMediaService.currentMedia$ | async).small">
+              {{ data.news['description_' + data.lang] }}
+            </h1>
+            <div class="path-link-wrapper gl-path-link-wrapper gl-sm-hide">
+              <a class="gl-bread-crumbs"
+                 [routerLink]="(['/'] | dynamicLink) | async">
+                ArtHall
+              </a>
+              /
+              <a class="path-link gl-bread-crumbs"
+                 [routerLink]="(['/', pageNameEnum.News] | dynamicLink) | async">
+                {{ 'PAGES.NEWS_LIST_PAGE.SUBTITLE' | translate }}
+              </a>
+              /
+              <a class="gl-bread-crumbs"
+                 [routerLink]="(['/', pageNameEnum.News, data.news.id] | dynamicLink) | async" >
+                {{ data.news['title_' + data.lang] }}
+              </a>
+            </div>
+          </div>
+
+          <div class="date gl-font-sf-pro-text gl-sm-hide">
+            {{ data.news.created_at | date : 'dd.MM.y' }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="news-content-wrapper page-content gl-page-content"
+         [innerHTML]="data.news['html_' + data.lang] | sanitize">
+    </div>
+  </div>
+</ng-container>

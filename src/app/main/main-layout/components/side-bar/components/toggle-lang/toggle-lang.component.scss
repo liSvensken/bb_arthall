@@ -1,0 +1,35 @@
+@import '../../common-styles';
+@import 'sizes';
+
+:host {
+  flex-grow: 1;
+}
+
+.bnt-back-wrapper {
+  margin-bottom: 22px;
+}
+
+.btn-back {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+  padding: 10px 10px 10px 25px;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+    background-image: url('/assets/icons/side-bar/next-btn.svg');
+    width: 16px;
+    height: 14px;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.bnt-lang-wrapper {
+  & + & {
+    margin-top: 10px;
+  }
+}

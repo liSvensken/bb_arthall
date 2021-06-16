@@ -1,0 +1,119 @@
+@import 'sizes';
+@import 'colors';
+
+.modal-wrapper {
+  position: relative;
+
+  @include for-sm-down {
+    overflow: auto;
+    max-height: 100vh;
+  }
+}
+
+.modal-container {
+  overflow: auto;
+  max-height: 100vh;
+  width: 606px;
+
+  @include for-sm-down {
+    padding: 22px 16px 30px;
+    width: 376px;
+    position: relative;
+    overflow: hidden;
+    max-height: none;
+    display: flex;
+    flex-direction: column;
+
+    &:before {
+      position: absolute;
+      content: '';
+      width: 376px;
+      height: 442px;
+      top: 276px;
+      right: -1px;
+      background-image: url('/assets/images/application-modal/phone-bottom.png');
+    }
+
+    &:after {
+      position: absolute;
+      content: '';
+      width: 454px;
+      height: 370px;
+      top: 92px;
+      left: 10px;
+      background-image: url('/assets/images/application-modal/phone-top.png')
+    }
+  }
+
+  @include for-xs-down {
+    width: 320px;
+  }
+}
+
+.application-wrapper {
+  overflow: hidden;
+  padding: 100px 62px 116px;
+}
+
+.header-wrapper {
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-wrapper {
+  margin-bottom: 16px;
+  margin-right: 0;
+}
+
+.logo-caption {
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.3px;
+  color: #fff;
+  text-align: center;
+}
+
+.list-wrapper {
+  max-width: 200px;
+  flex-grow: 1;
+}
+
+.list-item {
+  padding-left: 18px;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  color: #fff;
+  position: relative;
+
+  & + & {
+    margin-top: 28px;
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 6px;
+    height: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    background-color: $application-dot-list;
+    border-radius: 100%;
+  }
+}
+
+.app-store-link-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-top: 16px;
+}
+
+.ipp-store-image {
+  width: 218px;
+  height: 64px;
+}

@@ -1,0 +1,30 @@
+<div class="gl-modal-wrapper">
+  <div class="modal-wrapper">
+    <img itemprop="image"
+         #imgElem
+         [src]="apiBaseUrl + '/' + data.file"
+         class="image"
+         [ngStyle]="{
+         maxWidth: (innerWidth$ | async) - (paddingTopBottom$ | async) + 'px',
+         maxHeight: (innerHeight$ | async) - (paddingLeftRight$ | async) + 'px'
+         }"
+         [alt]="('ALT.PAINTING' | translate) + ' ' + data['name_' + (lang$ | async)]"
+         (click)="openFullScreen()">
+    <div class="caption-wrapper">
+      <div class="artist-name gl-font-sf-pro-text">
+        {{ data.artist['name_' + (lang$ | async)] }}
+      </div>
+      <div class="painting-name gl-font-new-york-large">
+        “{{ data['title_' + (lang$ | async)] }}”
+      </div>
+    </div>
+    <button class="gl-modal-btn-close gl-main-btn-close mod-white"
+            type="button">
+    </button>
+  </div>
+</div>
+
+<app-full-screen [hidden]="!(isOpenFullScreen$ | async)"
+                 [isActive]="isOpenFullScreen$ | async"
+                 [paintingData]="data">
+</app-full-screen>

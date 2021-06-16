@@ -1,0 +1,14 @@
+<div class="toggle-wrapper"
+     (click)="clickToggleBtn()"
+     (touchstart)="touchstart($event)"
+     (touchend)="touchend($event)">
+  <button *ngFor="let btnValue of toggleBtnValues"
+          class="toggle-item"
+          [class.mod-active]="(toggleBtnActive$ | async) === btnValue">
+    {{ 'PAGES.ARTIST_PAGE.' + btnValue | translate }}
+  </button>
+
+  <div class="toggle-background gl-fl-show"
+       [class.right]="(toggleBtnActive$ | async) === sectionsEnum.Manifest">
+  </div>
+</div>

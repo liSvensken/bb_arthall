@@ -1,0 +1,44 @@
+<header class="header-wrapper gl-page-content"
+     [ngStyle]="{ height: (headerHeight$ | async) + 'px' }">
+  <div class="left-block">
+    <a itemprop="url" class="gl-logo-wrapper" [routerLink]="(['/'] | dynamicLink) | async">
+      <div class="gl-logo"></div>
+      <div class="gl-logo-title gl-font-sf-pro-rounded gl-md-hide">ArtHall</div>
+    </a>
+    <h1 *ngIf="isMainPage; else HIDE_H1" class="logo-caption gl-md-hide">
+      {{ 'HEADER.TITLE' | translate }}
+    </h1>
+    <ng-template #HIDE_H1>
+      <div class="logo-caption gl-md-hide">
+        {{ 'HEADER.TITLE' | translate }}
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="center-block gl-md-show">
+    <a itemprop="url" class="gl-logo-wrapper" [routerLink]="(['/'] | dynamicLink) | async">
+      <div class="gl-logo-title gl-font-sf-pro-rounded">ArtHall</div>
+    </a>
+  </div>
+
+  <div class="right-block">
+    <div class="select-wrapper gl-sm-hide">
+      <app-select></app-select>
+    </div>
+
+    <ng-container *ngIf="isMainPage; else SHOW_BTN_CLOSE">
+      <button class="burger-btn-wrapper"
+              type="button"
+              (click)="onClickOpenSideBar()">
+        <span class="burger-btn"></span>
+      </button>
+    </ng-container>
+
+    <ng-template #SHOW_BTN_CLOSE>
+      <button class="gl-btn-close"
+              type="button"
+              (click)="onGoToPrevPage()">
+      </button>
+    </ng-template>
+  </div>
+</header>

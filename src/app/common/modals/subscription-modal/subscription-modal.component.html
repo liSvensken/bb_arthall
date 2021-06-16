@@ -1,0 +1,67 @@
+<ng-container *ngIf="{
+      successfulSubscription: successfulSubscription$ | async,
+      unsubscribeSubscription: unsubscribeSubscription$ | async
+} as data">
+  <div class="gl-modal-wrapper">
+    <div class="modal-container gl-modal-container">
+      <div class="header modal-content">
+        <div class="logo"></div>
+        <button class="btn-close gl-modal-btn-close" type="button"></button>
+      </div>
+      <ng-container
+        *ngIf="!data.successfulSubscription && !data.unsubscribeSubscription; else CLICK_SUBSCRIPTION">
+        <div class="content-wrapper">
+          <div class="content-caption modal-content">
+            {{ 'SUBSCRIPTION_MODAL.TITLE' | translate }}
+          </div>
+          <div class="main-content">
+            <div class="content-text gl-font-sf-pro-text modal-content">
+              {{ 'SUBSCRIPTION_MODAL.MAIN_CONTENT_TEXT' | translate }}
+            </div>
+            <div class="content-image main-content-image"
+                 [class.mod-ru]="(lang$ | async) === langEnum.Ru"
+                 [class.mod-en]="(lang$ | async) === langEnum.En">
+            </div>
+          </div>
+
+          <div class="additional-content gl-sm-hide" [class.mod-open]="isClickSubscribe$ | async">
+            <div class="content-text gl-font-sf-pro-text modal-content">
+              {{ 'SUBSCRIPTION_MODAL.ADDITIONAL_CONTENT_TEXT' | translate }}
+            </div>
+            <div class="content-image additional-content-image"
+                 [class.mod-ru]="(lang$ | async) === langEnum.Ru"
+                 [class.mod-en]="(lang$ | async) === langEnum.En">
+            </div>
+          </div>
+
+          <div class="btn-wrapper modal-content">
+            <button type="button"
+                    class="gl-black-btn btn-subscribe"
+                    [class.mod-close]="isClickSubscribe$ | async"
+                    (click)="subscribe()">
+              {{ 'SUBSCRIPTION_MODAL.BTN_SUBSCRIBE' | translate }}
+            </button>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #CLICK_SUBSCRIPTION>
+        <div class="content-caption modal-content">
+          <ng-container *ngIf="data.successfulSubscription">
+            {{ 'SUBSCRIPTION_MODAL.SUCCESSFUL_SUBSCRIPTION' | translate }}
+          </ng-container>
+          <ng-container *ngIf="data.unsubscribeSubscription">
+            {{ 'SUBSCRIPTION_MODAL.UNSUBSCRIBE_SUBSCRIPTION' | translate }}
+          </ng-container>
+        </div>
+        <div class="btn-wrapper modal-content">
+          <button type="button"
+                  class="gl-black-btn btn-subscribe"
+                  (click)="continue()">
+            {{ 'SUBSCRIPTION_MODAL.BTN_CONTINUE' | translate }}
+          </button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</ng-container>

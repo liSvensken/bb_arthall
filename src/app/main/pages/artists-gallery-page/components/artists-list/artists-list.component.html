@@ -1,0 +1,41 @@
+<ng-container data-*ngIf="lang$ | async as lang">
+  <ng-container *ngFor="let artistsWithSymbol of artistsWithSymbol">
+    <div data-*ngIf="artistsWithSymbol.list.length"
+         class="list-wrapper">
+      <div class="caption-wrapper">
+        <div class="caption-value">{{ artistsWithSymbol.symbol }}</div>
+        <div class="caption-band"></div>
+      </div>
+
+      <div class="grid-wrapper">
+        <a *ngFor="let artist of artistsWithSymbol.list"
+           itemscope itemtype="http://schema.org/Painting"
+           class="artist-wrapper gl-painting-hover-wrapper"
+<<<<<<< HEAD
+           [routerLink]="['/' + pageNameEnum.Artists, artist.url]">
+          <ng-container data-*ngIf="artist.photo; else IS_ERROR_PHOTO">
+=======
+           [routerLink]="(['/', pageNameEnum.Artists, artist.url || artist.id] | dynamicLink) | async">
+          <ng-container *ngIf="artist.photo; else IS_ERROR_PHOTO">
+>>>>>>> 0f05775a6a7b58d633041a14801459e40c2a5cc7
+            <img itemprop="genre"
+                 class="artist-photo"
+                 (error)="onErrorPhoto(artistsWithSymbol.list, artist.id)"
+                 [src]="apiBaseUrl + artist.photo"
+                 [alt]="('ALT.ARTIST' | translate) + ' ' + artist['name_' + lang]">
+          </ng-container>
+          <ng-template #IS_ERROR_PHOTO>
+            <div class="artist-photo mod-skeleton"></div>
+            <img class="gl-fake"
+                 [src]="apiBaseUrl + artist.photo"
+                 [alt]="('ALT.ARTIST' | translate) + ' ' + artist['name_' + lang]">
+          </ng-template>
+          <div itemprop="author"
+            class="artist-name">
+            {{ artist['name_' + lang] }}
+          </div>
+        </a>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

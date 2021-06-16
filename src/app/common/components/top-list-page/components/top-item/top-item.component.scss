@@ -1,0 +1,280 @@
+@import 'sizes';
+@import 'consts';
+@import 'extends';
+
+:host {
+  overflow: hidden;
+
+  & + & {
+    margin-left: 20px;
+  }
+
+  @include for-sm-down {
+    display: block;
+    padding: $page-content-padding-small 16px;
+    border-top: 1px solid rgba(0, 0, 0, 0.24);
+  }
+
+  @include for-xxs-down {
+    padding-left: $page-content-padding-xxs-down;
+    padding-right: $page-content-padding-xxs-down;
+  }
+}
+
+.item-list-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  padding-top: 80px;
+
+  &.mod-first {
+    padding-top: 102px;
+
+    .crown-wrapper {
+      width: 106px;
+      height: 84px;
+    }
+
+    .crown-image {
+      width: 106px;
+      height: 84px;
+      background-image: url('/assets/icons/top-list/crown-gold.svg');
+    }
+
+    .crown-number {
+      font-size: 36px;
+      background: linear-gradient(#ffa14a 100%, #ffc700 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 1;
+    }
+  }
+
+  @include for-sm-down {
+    padding-top: 0 !important;
+    align-items: flex-start;
+
+    &.mod-second {
+      .crown-image {
+        background-image: url('/assets/icons/top-list/crown-blur.svg');
+      }
+
+      .crown-number {
+        background: linear-gradient(#9ECEE9 100%, #80BCDD 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 1;
+      }
+    }
+
+    &.mod-third {
+      .crown-image {
+        background-image: url('/assets/icons/top-list/crown-bronze.svg');
+      }
+
+      .crown-number {
+        background: linear-gradient(#E79767 100%, #BE6942 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.crown-wrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include for-sm-down {
+    position: initial;
+    width: 74px !important;
+    height: 58px !important;
+    transform: none;
+    margin-right: 16px;
+  }
+}
+
+.crown-image {
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/icons/top-list/crown-silver.svg');
+}
+
+.crown-number {
+  position: absolute;
+  font-weight: 800;
+  letter-spacing: -0.408px;
+  font-size: 26px;
+  color: #000000;
+  opacity: 0.1;
+}
+
+.item-link-wrapper {
+  width: 100%;
+
+  &.mod-large {
+    width: 40%;
+
+    @include for-bg-down {
+      width: 56%;
+    }
+
+    @include for-sm-down {
+      width: 100%;
+    }
+  }
+}
+
+.photo-wrapper {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+
+  &.mod-large {
+    height: 528px;
+
+    @include for-bg-down {
+      height: 400px;
+    }
+  }
+
+  &.mod-medium {
+    height: 400px;
+
+    @include for-bg-down {
+      height: 300px;
+    }
+  }
+
+  &.mod-small {
+    height: 200px;
+
+    @include for-bg-down {
+      height: 100px;
+    }
+  }
+
+  &.mod-large, &.mod-medium, &.mod-small {
+    @include for-sm-down {
+      width: 100%;
+      height: 480px !important;
+    }
+
+    @include for-xs-down {
+      height: 400px !important;
+    }
+
+    @include for-xxs-down {
+      height: 342px !important;
+    }
+  }
+}
+
+.photo {
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100%;
+
+  &.mod-top-painting-page {
+    height: 100%;
+  }
+
+  &.mod-skeleton {
+    height: 100%;
+    @extend %skeleton;
+  }
+}
+
+.info-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include for-sm-down {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.text-info-wrapper {
+  @include for-sm-down {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.artist-name {
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: -0.3px;
+  margin-bottom: 6px;
+  text-align: center;
+
+  @include for-sm-down {
+    font-size: 16px !important;
+  }
+
+  &.mod-medium {
+    font-size: 18px;
+
+    @include for-sm-down {
+      font-size: 16px !important;
+    }
+  }
+
+  &.mod-small {
+    font-style: normal;
+    font-size: 14px;
+
+    @include for-bg-down {
+      font-size: 12px;
+    }
+  }
+}
+
+.painting-title {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.3px;
+  margin-bottom: 8px;
+  text-align: center;
+
+  &.mod-small {
+    font-style: normal;
+    font-size: 14px;
+  }
+
+  @include for-sm-down {
+    text-align: start;
+  }
+}
+
+.rating {
+  font-weight: bold;
+  font-size: 12px;
+  letter-spacing: -0.3px;
+  color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+
+  &.mod-small {
+    @include for-bg-down {
+      font-size: 10px;
+    }
+
+    @include for-sm-down {
+      font-size: 12px;
+    }
+  }
+}

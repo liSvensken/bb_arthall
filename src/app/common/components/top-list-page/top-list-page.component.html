@@ -1,0 +1,57 @@
+<ng-container *ngIf="{
+  pageNameI18n: pageNameI18n$ | async
+} as data">
+
+  <div class="gl-page-wrapper">
+    <h1 class="gl-title-page gl-page-content">
+      {{ data.pageNameI18n + 'SUBTITLE' | translate }}
+    </h1>
+
+    <div itemscope itemtype="http://schema.org/BreadcrumbList"
+         class="gl-path-link-wrapper gl-page-content">
+      <a itemscope itemtype="http://schema.org/ListItem"
+         itemprop="itemListElement" class="gl-bread-crumbs"
+         [routerLink]="(['/'] | dynamicLink) | async">
+        <span itemprop="name">ArtHall</span>
+      </a>
+      /
+      <a itemscope itemtype="http://schema.org/ListItem"
+         itemprop="itemListElement" class="gl-bread-crumbs">
+        <span itemprop="name">{{ data.pageNameI18n + 'SUBTITLE' | translate }}</span>
+      </a>
+    </div>
+
+    <div class="page-caption gl-page-content">
+      * {{ 'PAGES.TOP_PAGE.CAPTION' | translate }}
+    </div>
+
+    <div class="list-wrapper gl-page-content reset-page-content">
+      <div class="block-wrapper mod-upper">
+        <ng-container *ngFor="let item of upperBlock$ | async">
+          <app-top-item [itemModel]="item"
+                        [itemType]="itemsTypeEnum.Large"
+                        (openPaintingModal)="openPaintingModal($event)">
+          </app-top-item>
+        </ng-container>
+      </div>
+
+      <div class="block-wrapper mod-center">
+        <ng-container *ngFor="let item of centralBlock$ | async">
+          <app-top-item [itemModel]="item"
+                        [itemType]="itemsTypeEnum.Medium"
+                        (openPaintingModal)="openPaintingModal($event)">
+          </app-top-item>
+        </ng-container>
+      </div>
+
+      <div class="block-wrapper mod-lower">
+        <ng-container *ngFor="let item of lowerBlock$ | async">
+          <app-top-item [itemModel]="item"
+                        [itemType]="itemsTypeEnum.Small"
+                        (openPaintingModal)="openPaintingModal($event)">
+          </app-top-item>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>

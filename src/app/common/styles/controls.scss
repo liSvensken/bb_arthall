@@ -1,0 +1,73 @@
+@import 'colors';
+@import 'sizes';
+@import 'consts';
+
+.burger-btn-wrapper {
+  width: 24px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &:before, &:after {
+    content: '';
+    position: absolute;
+  }
+
+  &:before, &:after, .burger-btn {
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+    border-radius: 4px;
+  }
+
+  &:before {
+    top: 0;
+  }
+
+  &:after {
+    bottom: 0;
+  }
+}
+
+.gl-btn-close {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  margin-right: -6px;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 18px;
+    height: 18px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('/assets/icons/common/close-btn/close-btn-black.svg');
+  }
+}
+
+.gl-black-btn {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 30px;
+  padding: 12px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 60px;
+  transition: background-color 200ms;
+
+  @include for-xs-down {
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px 12px;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+  }
+
+  &:hover, &:disabled {
+    background-color: $main-hover-background;
+  }
+}

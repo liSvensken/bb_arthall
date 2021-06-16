@@ -1,0 +1,72 @@
+@import 'content';
+
+.select {
+  width: 126px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: relative;
+  user-select: none;
+}
+
+.option-title-wrapper {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.arrow {
+  background-image: url('/assets/icons/header/arrow-up.svg');
+  width: 12px;
+  height: 6px;
+  margin-left: 10px;
+  transition: background-image 200ms;
+
+  &.mod-open {
+    background-image: url('/assets/icons/header/arrow-down.svg');
+  }
+}
+
+.options-wrapper {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms, padding 300ms;
+  z-index: $z-index-lang-select;
+
+  &.mod-open {
+    max-height: 120px;
+    padding: 8px 0;
+  }
+}
+
+.option-item-wrapper {
+  input {
+    display: none;
+  }
+}
+
+.option-item {
+  font-size: 18px;
+  width: 100%;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover, &.active {
+    font-weight: 600;
+    text-decoration: underline;
+  }
+}

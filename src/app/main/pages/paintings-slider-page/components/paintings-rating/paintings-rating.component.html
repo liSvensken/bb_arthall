@@ -1,0 +1,11 @@
+<div class="wrapper"
+     (mouseleave)="ratingLeave()">
+  <button *ngFor="let ratingItem of ratingsList"
+          type="button"
+          class="star"
+          (mouseenter)="ratingEnter(ratingItem)"
+          [class.mod-enter]="(ratingEnter$ | async) >= ratingItem"
+          [class.mod-selected]="rating >= ratingItem"
+          (click)="onClickRating(ratingItem)">
+  </button>
+</div>

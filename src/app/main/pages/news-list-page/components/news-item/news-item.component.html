@@ -1,0 +1,41 @@
+<div class="news-container gl-page-content">
+  <div class="news-images-wrapper">
+    <img class="main-image"
+         [class.gl-fake]="isErrorImageSrc$ | async"
+         (error)="onErrorImage()"
+         [src]="news.coverArt"
+         [alt]="(news.typeNewsI18n | translate) + '_' + news.title[lang$ | async]">
+  </div>
+
+  <div class="news-content-wrapper">
+    <div class="news-type"
+         [class.gl-font-sf-pro-text]="(matchMediaService.currentMedia$ | async).small">
+      {{ news.typeNewsI18n | translate }}
+    </div>
+    <div class="news-title"
+         [class.gl-font-sf-pro-text]="(matchMediaService.currentMedia$ | async).small">
+      {{ news.title[lang$ | async] }}
+    </div>
+    <ng-container *ngIf="news.typeNewsI18n === newsTypeI18nEnum.ArtistI18n
+                         && !(matchMediaService.currentMedia$ | async).small">
+      <div class="portfolio-wrapper">
+        <div *ngFor="let paintingUrl of news.paintingsUrls" class="secondary-image-wrapper">
+          <img class="secondary-image"
+               [class.gl-fake]="isErrorImageSrc$ | async"
+               (error)="onErrorImage()"
+               [src]="paintingUrl"
+               [alt]="(news.typeNewsI18n | translate) + '_' + news.title[lang$ | async]">
+        </div>
+      </div>
+    </ng-container>
+    <div class="news-preview gl-sm-hide">
+      {{ news.preview }}
+    </div>
+    <div class="link-wrapper">
+      <a class="link gl-sm-hide"
+         (click)="clickNews(news)">
+        {{ 'PAGES.NEWS_LIST_PAGE.BTN_READ' | translate }}
+      </a>
+    </div>
+  </div>
+</div>

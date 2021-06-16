@@ -1,0 +1,62 @@
+<div class="gl-modal-wrapper">
+  <div class="modal-wrapper">
+
+    <div class="modal-container gl-modal-container gl-sm-hide">
+      <div class="application-wrapper">
+        <app-application *ngIf="isOpenModal$ | async" [fullPhoneImage]="true"></app-application>
+      </div>
+    </div>
+
+    <div class="modal-container gl-modal-container gl-sm-show"
+    [ngStyle]="{ minHeight: ((windowInnerSizesService.innerHeight$ | async) * 0.9) + 'px' }">
+      <div class="header-wrapper">
+        <div class="logo-wrapper gl-logo-wrapper">
+          <div class="gl-logo mod-white"></div>
+          <div class="gl-logo-title mod-white gl-font-sf-pro-rounded">
+            ArtHall
+          </div>
+        </div>
+        <div class="logo-caption gl-font-sf-pro-text">
+          {{ 'APPLICATION_MODAL.LIST_CAPTION' | translate }}
+        </div>
+      </div>
+
+      <ul class="list-wrapper">
+        <li class="list-item">
+          {{ 'APPLICATION_MODAL.LIST.AWARDS' | translate }}
+        </li>
+        <li class="list-item">
+          {{ 'APPLICATION_MODAL.LIST.PERSONAL_GALLERIES' | translate }}
+        </li>
+        <li class="list-item">
+          {{ 'APPLICATION_MODAL.LIST.SUBSCRIPTION' | translate }}
+        </li>
+        <li class="list-item">
+          {{ 'APPLICATION_MODAL.LIST.ARTIST_FILTER' | translate }}
+        </li>
+        <li class="list-item">
+          {{ 'APPLICATION_MODAL.LIST.SELECTING_TOPIC' | translate }}
+        </li>
+      </ul>
+
+      <div class="app-store-link-wrapper">
+        <a *ngIf="operatingSystem === operatingSystemNamesEnum.Ios"
+           itemprop="url" class="gl-application-link gl-sm-show"
+           href="" target="_blank">
+        <span class="gl-application-link-image"
+              [class.mod-market-ios-en]="(lang$ | async) === langEnum.En"
+              [class.mod-market-ios-ru]="(lang$ | async) === langEnum.Ru">
+        </span>
+        </a>
+        <a *ngIf="operatingSystem === operatingSystemNamesEnum.Android ||
+                  operatingSystem === operatingSystemNamesEnum.Browser"
+           itemprop="url" class="gl-application-link gl-sm-show"
+           href="" target="_blank">
+          <span class="gl-application-link-image mod-market-android"></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="gl-modal-btn-close gl-main-btn-close"></div>
+  </div>
+</div>

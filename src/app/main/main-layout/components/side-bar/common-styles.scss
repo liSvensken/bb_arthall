@@ -1,0 +1,35 @@
+.lang-caption {
+  font-size: 12px;
+  letter-spacing: -0.3px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.bnt-lang {
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 50px;
+
+  &:before {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.mod-active {
+    font-weight: bold;
+
+    &.mod-toggle {
+      &:after {
+        position: absolute;
+        content: '';
+        background-image: url('/assets/icons/side-bar/tick.svg');
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+      }
+    }
+  }
+}

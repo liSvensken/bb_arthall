@@ -1,0 +1,18 @@
+<div #mainLayoutWrapper class="main-layout-wrapper"
+     [class.open-side-bar]="sideBarService.isOpened$ | async">
+  <app-header [isMainPage]="isMainPage$ | async"
+              (clickOpenSideBar)="toggleSideBar(true)"
+              (goToPrevPage)="goToPrevPage()">
+  </app-header>
+  <div class="content-wrapper"
+       [ngStyle]="{ paddingTop: (paddingTop$ | async) + 'px' }">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer class="gl-md-hide"></app-footer>
+</div>
+
+<app-side-bar (closeSideBar)="toggleSideBar($event)"
+              [isOpenSideBarInput]="sideBarService.isOpened$ | async">
+</app-side-bar>
+
+<app-global-loader></app-global-loader>

@@ -1,0 +1,56 @@
+@import 'sizes';
+
+.wrapper {
+  width: 168px;
+  display: flex;
+  justify-content: space-between;
+
+  @include for-md-down {
+    width: 140px;
+  }
+}
+
+.star {
+  position: relative;
+  width: 24px;
+  height: 24px;
+
+  &:after, &:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+  }
+
+  &:after {
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    background-image: url('/assets/icons/paintings-slider/star-hollow.svg');
+  }
+
+  &:before {
+    top: calc(50%);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 150ms; // todo на убирание не работает
+  }
+
+  &.mod-enter {
+    &:before {
+      background-image: url('/assets/icons/paintings-slider/star-enter.svg');
+      opacity: 1;
+    }
+  }
+
+  &.mod-selected {
+    &:before {
+      background-image: url('/assets/icons/paintings-slider/star-selected.svg');
+      opacity: 1;
+    }
+  }
+}

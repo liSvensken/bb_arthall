@@ -1,0 +1,17 @@
+<div class="gallery-wrapper" [ngStyle]="{ gridGap: columnsGap + 'px' }">
+  <div *ngFor="let column of columnsArr$ | async; let i = index"
+       class="column-wrapper">
+    <div *ngFor="let painting of column.paintingList"
+         class="image-wrapper" [ngStyle]="{ height : painting.size.height + 'px'}">
+      <img appLazyImg class="image"
+           (click)="openPainting(painting)"
+           [src]="apiBaseUrl + painting.webpack_file"
+           [alt]="('ALT.PAINTING' | translate) + ' ' + painting['title_' + (lang$ | async)]">
+      <div class="gl-fake" itemprop="name">
+        {{ painting['title_' + (lang$ | async)] }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gl-loader-dots" [class.mod-show]="!isBrowser"></div>

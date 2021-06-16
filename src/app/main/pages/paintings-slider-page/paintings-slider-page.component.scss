@@ -1,0 +1,107 @@
+@import 'sizes';
+@import 'extends';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.slider-fake {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
+  width: 136.667%;
+  align-items: center;
+
+  @include for-sm-down {
+    width: 254.5%;
+  }
+}
+
+.slide-fake {
+  height: 100%;
+  border-radius: 10px;
+  pointer-events: none;
+  overflow: hidden;
+  @extend %skeleton;
+
+  &:first-child {
+    opacity: 0;
+  }
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  ::ng-deep {
+    .swiper-wrapper {
+      align-items: center;
+    }
+
+    .swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      width: 578px;
+      transition: height 300ms ease-out;
+      display: flex;
+      align-items: center;
+
+      &.swiper-slide-active {
+        height: 100% !important;
+        width: 520px;
+      }
+    }
+
+    .slide-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-wrapper {
+      border-radius: 10px;
+      cursor: pointer;
+      overflow: hidden;
+      @extend %skeleton;
+
+      .slide-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.description-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  @include for-sm-down {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+//.qwe {
+//  position: absolute;
+//  top: 10%;
+//  left: 10%;
+//  font-size: 30px;
+//}

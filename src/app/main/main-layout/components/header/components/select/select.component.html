@@ -1,0 +1,19 @@
+<div class="select" appClickOutside (clickOutside)="close()">
+  <div class="option-title-wrapper" (click)="toggleOpened()">
+    <div class="title">{{ 'HEADER.LANG' | translate }}</div>
+    <div class="arrow" [class.mod-open]="isOpen$ | async"></div>
+  </div>
+
+  <div class="options-wrapper" [class.mod-open]="isOpen$ | async">
+    <div class="option-item-wrapper">
+      <a [routerLink]="(langEnum.Ru | linkForChangeLangPipe) | async" class="option-item"
+         [class.active]="(lang$ | async) === langEnum.Ru">
+        РУ
+      </a>
+      <a [routerLink]="(null | linkForChangeLangPipe) | async" class="option-item"
+         [class.active]="(lang$ | async) === langEnum.En">
+        EN
+      </a>
+    </div>
+  </div>
+</div>

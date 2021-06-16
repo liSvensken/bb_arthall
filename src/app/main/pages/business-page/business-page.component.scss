@@ -1,0 +1,129 @@
+@import 'sizes';
+@import 'consts';
+@import 'extends';
+
+.text-wrapper {
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 1px;
+  padding-bottom: 56px;
+  position: relative;
+  margin-bottom: 56px;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 162px;
+    height: 1px;
+    background-color: #000;
+    bottom: 0;
+    left: 0;
+  }
+
+  @include for-sm-down {
+    padding-bottom: 0;
+    margin-bottom: 40px;
+    line-height: 24px;
+
+    &:before {
+      content: none;
+    }
+  }
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+
+  @include for-sm-down {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include for-xs-down {
+    padding-left: 0;
+    padding-right: 0;
+    grid-template-columns: 1fr;
+  }
+}
+
+.video-link-wrapper {
+  width: 100%;
+  display: inline-block;
+}
+
+.cover-art-wrapper {
+  display: block;
+  width: 100%;
+  margin-bottom: 26px;
+  height: 166px;
+  @extend %skeleton;
+}
+
+.cover-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+.caption, .links-wrapper {
+  @include for-xs-down {
+    padding-left: $page-content-padding-small;
+    padding-right: $page-content-padding-small;
+  }
+
+  @include for-xxs-down {
+    padding-left: $page-content-padding-xxs-down;
+    padding-right: $page-content-padding-xxs-down;
+  }
+}
+
+.caption {
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 18px;
+}
+
+.links-wrapper {
+  display: flex;
+}
+
+.link {
+  width: 32px;
+  height: 22px;
+  display: block;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &.mod-youtube {
+    background-image: url('/assets/icons/business/youtube.svg');
+    transition: background-image 200ms;
+
+    &:hover {
+      background-image: url('/assets/icons/business/youtube-hover.svg');
+    }
+  }
+
+  &.mod-mp4, &.mod-mov {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+    transition: background-color, color, border, 200ms;
+
+    &:hover {
+      color: #fff;
+      background-color: #c4c4c4;
+      border-color: transparent;
+    }
+  }
+
+  & + & {
+    margin-left: 16px;
+  }
+}

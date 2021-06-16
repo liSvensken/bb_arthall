@@ -1,0 +1,37 @@
+<div class="application-fl-wrapper gl-sm-hide">
+  <div class="application-content">
+    <div class="application-list-wrapper">
+      <div class="application-list-caption gl-font-sf-pro-text">
+        {{ 'APPLICATION_MODAL.LIST_CAPTION' | translate }}
+      </div>
+      <ul>
+        <li class="application-list-item gl-font-sf-pro-text">
+          {{ 'APPLICATION_MODAL.LIST.AWARDS' | translate }}
+        </li>
+        <li class="application-list-item gl-font-sf-pro-text">
+          {{ 'APPLICATION_MODAL.LIST.PERSONAL_GALLERIES' | translate }}
+        </li>
+        <li class="application-list-item gl-font-sf-pro-text">
+          {{ 'APPLICATION_MODAL.LIST.SUBSCRIPTION' | translate }}
+        </li>
+        <li class="application-list-item gl-font-sf-pro-text">
+          {{ 'APPLICATION_MODAL.LIST.ARTIST_FILTER' | translate }}
+        </li>
+        <li class="application-list-item gl-font-sf-pro-text">
+          {{ 'APPLICATION_MODAL.LIST.SELECTING_TOPIC' | translate }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="application-qr-wrapper">
+      <div class="application-qr-caption">
+        {{ 'SIDE_BAR.QR_CAPTION' | translate }}
+      </div>
+      <img itemprop="image" class="application-qr-image" src="/assets/icons/side-bar/qr-code.svg"
+           alt="qr-code">
+    </div>
+  </div>
+
+  <div class="phone-image"
+       [class.mod-full-phone]="fullPhoneImage"></div>
+</div>

@@ -1,0 +1,84 @@
+<ng-container *ngIf="{
+                lang: lang$ | async,
+                currentPage: currentPage$ | async
+              } as data">
+
+  <div itemscope itemtype="http://schema.org/Painting"
+       class="item-list-wrapper"
+       [class.mod-first]="itemModel.number === 1"
+       [class.mod-second]="itemModel.number === 2"
+       [class.mod-third]="itemModel.number === 3">
+
+    <div class="crown-wrapper gl-sm-hide">
+      <div class="crown-image"></div>
+      <div class="crown-number">
+        {{ itemModel.number }}
+      </div>
+    </div>
+
+    <a
+      [routerLink]="data.currentPage === pageNameEnum.TopArtists ? ((['/', pageNameEnum.Artists, itemModel.item.url || itemModel.item.artist.id] | dynamicLink) | async) : null"
+      class="item-link-wrapper gl-painting-hover-wrapper"
+      [class.mod-large]="itemType === itemsTypeEnum.Large"
+      (click)="onOpenPaintingModal()">
+    <span itemprop="genre"
+          class="photo-wrapper"
+          [class.mod-large]="data.currentPage !== pageNameEnum.TopPaintings && itemType === itemsTypeEnum.Large"
+          [class.mod-medium]="data.currentPage !== pageNameEnum.TopPaintings && itemType === itemsTypeEnum.Medium"
+          [class.mod-small]="data.currentPage !== pageNameEnum.TopPaintings && itemType === itemsTypeEnum.Small">
+      <ng-container *ngIf="!(isErrorImageSrc$ | async); else IS_ERROR_IMAGE">
+         <img appLazyImg class="photo"
+              (error)="onErrorImage()"
+              [class.mod-top-painting-page]="data.currentPage !== pageNameEnum.TopPaintings"
+              [src]="apiBaseUrl + (itemModel.item.webpack_file || itemModel.item.file)"
+              [alt]="itemModel.item['title_'] + data.lang">
+        </ng-container>
+
+      <ng-template #IS_ERROR_IMAGE>
+        <div class="photo mod-skeleton"></div>
+        <img class="gl-fake"
+             [src]="apiBaseUrl + (itemModel.item.webpack_file || itemModel.item.file)"
+             [alt]="itemModel.item['title_'] + data.lang">
+      </ng-template>
+    </span>
+
+      <div class="info-wrapper">
+        <div class="crown-wrapper gl-sm-show">
+          <div class="crown-image"></div>
+          <div class="crown-number">
+            {{ itemModel.number }}
+          </div>
+        </div>
+
+        <div class="text-info-wrapper gl-painting-hover-caption">
+          <div itemprop="author"
+               class="artist-name gl-font-sf-pro-text"
+               [class.mod-medium]="itemType === itemsTypeEnum.Medium"
+               [class.mod-small]="itemType === itemsTypeEnum.Small">
+            {{ itemModel.item['name_' + data.lang] }}
+          </div>
+
+          <div *ngIf="itemModel.item['title_' + data.lang]"
+               itemprop="name"
+               class="painting-title gl-font-sf-pro-text"
+               [class.mod-small]="itemType === itemsTypeEnum.Small">
+            {{ itemModel.item['title_' + data.lang] }}
+          </div>
+
+          <ng-container *ngIf="itemModel.item.rate">
+            <div class="rating gl-font-sf-pro-text"
+                 [class.mod-small]="itemType === itemsTypeEnum.Small">
+              {{ 'PAGES.TOP_PAGE.RATING' | translate }}:
+              <ng-container *ngIf="(currentPage$ | async) === pageNameEnum.TopArtists; else PAINTINGS_PAGE">
+                {{ itemModel.item.rate }}%
+              </ng-container>
+              <ng-template #PAINTINGS_PAGE>
+                {{ itemModel.item.rate / 5 * 100 }}%
+              </ng-template>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </a>
+  </div>
+</ng-container>

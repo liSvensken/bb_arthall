@@ -1,0 +1,55 @@
+@import 'sizes';
+@import 'colors';
+
+.footer-wrapper {
+  border-top: 1px solid $main-border-rgba;
+}
+
+.content-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.links-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.item-bar {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.3px;
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0 10px;
+  transition: color 150ms;
+
+  &:first-child {
+    margin-left: -10px;
+  }
+
+  &:last-child {
+    margin-right: -10px;
+  }
+
+  &:hover {
+    color: #000;
+  }
+}
+
+.social-wrapper {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  height: 100%;
+}
+
+.social-item {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,100 @@
+@import '../../common-styles';
+@import 'sizes';
+
+:host {
+  background-color: #fff;
+  flex-grow: 1;
+}
+
+.menu-wrapper {
+  width: 100%;
+  padding: 24px 16px 14px;
+  display: flex;
+  justify-content: space-between;
+
+  @include for-sm-down {
+    padding: 0;
+  }
+}
+
+.menu-items-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+
+  @include for-sm-down {
+    margin: 20px 0;
+  }
+}
+
+.menu-item-bar {
+  font-size: 16px;
+  letter-spacing: -0.3px;
+  padding: 12px 12px 12px 32px;
+  background-position: left 50%;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+  }
+
+  &.mod-top-artists {
+    &:before {
+      background-image: url('/assets/icons/side-bar/top-artists.svg');
+    }
+  }
+
+  &.mot-top-paintings {
+    &:before {
+      background-image: url('/assets/icons/side-bar/top-paintings.svg');
+    }
+  }
+
+  &.mod-gallery-artists {
+    &:before {
+      background-image: url('/assets/icons/side-bar/gallery-artists.svg');
+    }
+  }
+
+  &.mod-news {
+    &:before {
+      background-image: url('/assets/icons/side-bar/news.svg');
+    }
+  }
+
+  &.mod-about-project {
+    &:before {
+      background-image: url('/assets/icons/side-bar/about-project.svg');
+    }
+
+  }
+
+  &.mod-arthall-business {
+    &:before {
+      background-image: url('/assets/icons/side-bar/arthall-business.svg');
+    }
+
+  }
+
+  &.mod-join {
+    &:before {
+      background-image: url('/assets/icons/side-bar/join.svg');
+    }
+  }
+
+  @include for-sm-down {
+    font-size: 18px;
+    padding: 18px 18px 18px 40px;
+
+    &:before {
+      width: 22px;
+      height: 22px;
+    }
+  }
+}

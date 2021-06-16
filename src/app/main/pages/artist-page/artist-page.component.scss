@@ -1,0 +1,83 @@
+@import 'colors';
+@import 'sizes';
+
+.top-bar-wrapper {
+  border-bottom: 1px solid $main-border-rgba;
+  height: 60px;
+
+  @include for-bg-down {
+    border-bottom: none;
+  }
+}
+
+.top-bar-content {
+  height: 100%;
+}
+
+.grid-wrapper {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 20px;
+  align-items: center;
+  position: relative;
+
+  @include for-bg-down {
+    display: block;
+  }
+}
+
+.title {
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @include for-bg-down {
+    font-weight: bold;
+    letter-spacing: -0.3px;
+    margin-bottom: 18px;
+
+    &.gl-country {
+      padding-left: 34px;
+    }
+
+    &:before {
+      width: 24px;
+      height: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.toggle-and-save-wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.bnt-download-wrapper {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.bnt-download {
+  width: 22px;
+  height: 28px;
+  background-image: url('/assets/icons/artist-page/btn-save.svg');
+}
+
+.space {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  top: -99999px;
+}

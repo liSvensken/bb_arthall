@@ -1,0 +1,74 @@
+@import 'consts';
+
+.gl-loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  color: #ffffff;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: $z-index-global-loader;
+}
+
+.gl-loader-dots {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 150ms;
+  margin: auto;
+  width: 12px;
+  height: 12px;
+
+  &:not(.mod-show) {
+    &, &:before, &:after {
+      display: none;
+    }
+  }
+
+  &, &:before, &:after {
+    content: '';
+    display: block;
+    border-radius: 100%;
+    animation-name: flicker;
+    animation-duration: 1200ms;
+    animation-iteration-count: infinite;
+    background-color: #000;
+  }
+
+  &:before, &:after {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:before {
+    left: -16px;
+  }
+
+  &:after {
+    right: -16px;
+    animation-delay: 300ms;
+  }
+}
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .05;
+  }
+
+  85% {
+    opacity: 1;
+  }
+}

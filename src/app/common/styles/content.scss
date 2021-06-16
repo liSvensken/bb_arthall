@@ -1,0 +1,295 @@
+@import 'colors';
+@import 'consts';
+@import 'sizes';
+
+.gl-title-page {
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 18px;
+
+  @include for-xs-down {
+    margin-bottom: 22px;
+  }
+}
+
+.gl-page-content {
+  padding-left: $page-content-padding-fl;
+  padding-right: $page-content-padding-fl;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include for-md-down {
+    padding-left: $page-content-padding-md-down;
+    padding-right: $page-content-padding-md-down;
+  }
+
+  @include for-sm-down {
+    padding-left: $page-content-padding-small;
+    padding-right: $page-content-padding-small;
+  }
+
+  @include for-xxs-down {
+    padding-left: $page-content-padding-xxs-down;
+    padding-right: $page-content-padding-xxs-down;
+  }
+}
+
+.gl-page-wrapper {
+  margin-top: 26px;
+  margin-bottom: 26px;
+
+  @include for-sm-down {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.gl-font-new-york-large {
+  font-family: 'new-york-large', sans-serif;
+}
+
+.gl-font-sf-pro-display {
+  font-family: 'sf-pro-display', sans-serif;
+}
+
+.gl-font-sf-pro-rounded {
+  font-family: 'sf-pro-rounded', sans-serif;
+}
+
+.gl-font-sf-pro-text {
+  font-family: 'sf-pro-text', sans-serif;
+}
+
+.gl-caption {
+  font-size: 16px;
+  line-height: 47px;
+  letter-spacing: 1px;
+  font-weight: bold;
+
+  & + & {
+    margin-top: 8px;
+  }
+
+  @include for-sm-down {
+    & + & {
+      margin-top: 4px;
+    }
+  }
+}
+
+.gl-paragraph-wrapper {
+  & + & {
+    margin-top: 30px;
+  }
+
+  @include for-sm-down {
+    & + & {
+      margin-top: 20px;
+    }
+  }
+}
+
+.gl-text {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.3px;
+}
+
+.gl-fake {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  top: -99999px;
+}
+
+.gl-logo-wrapper {
+  display: flex;
+  margin-right: 14px;
+}
+
+.gl-logo {
+  background-image: url('/assets/icons/common/logo/logo-black.svg');
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+
+  &.mod-white {
+    background-image: url('/assets/icons/common/logo/logo-white.svg');
+  }
+}
+
+.gl-logo-title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+
+  &.mod-white {
+    color: #fff;
+  }
+
+  @include for-xxs-down {
+    font-size: 26px;
+    letter-spacing: 0.7px;
+  }
+}
+
+.gl-country {
+  padding-left: 30px;
+  position: relative;
+
+  .gl-flag {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 14px;
+    top: 3px;
+    left: 0;
+
+    &.mod-ru, &.mod-en {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &.mod-ru {
+      background-image: url('/assets/icons/common/flags/coutry-ru.svg');
+    }
+
+    &.mod-en {
+      background-image: url('/assets/icons/common/flags/country-en.svg');
+    }
+  }
+}
+
+.gl-social-item {
+  transition: background-image 200ms;
+
+  & + & {
+    margin-left: 28px;
+  }
+
+  &.mod-facebook {
+    background-image: url('/assets/icons/common/social/facebook.svg');
+    &:hover {
+      background-image: url('/assets/icons/common/social/facebook-hover.svg');
+      @include for-sm-down {
+        background-image: url('/assets/icons/common/social/facebook.svg');
+      }
+    }
+  }
+
+  &.mod-twitter {
+    background-image: url('/assets/icons/common/social/twitter.svg');
+    &:hover {
+      background-image: url('/assets/icons/common/social/twitter-hover.svg');
+      @include for-sm-down {
+        background-image: url('/assets/icons/common/social/twitter.svg');
+      }
+    }
+  }
+
+  &.mod-inst {
+    background-image: url('/assets/icons/common/social/inst.svg');
+    &:hover {
+      background-image: url('/assets/icons/common/social/inst-hover.svg');
+      @include for-sm-down {
+        background-image: url('/assets/icons/common/social/inst.svg');
+      }
+    }
+  }
+
+  &.mod-youtube {
+    background-image: url('/assets/icons/common/social/youtube.svg');
+    &:hover {
+      background-image: url('/assets/icons/common/social/youtube-hover.svg');
+      @include for-sm-down {
+        background-image: url('/assets/icons/common/social/youtube.svg');
+      }
+    }
+  }
+}
+
+.gl-path-link-wrapper {
+  font-weight: 300;
+  line-height: 24px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+
+  .gl-bread-crumbs {
+    display: inline;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    &:last-child, &.no-link {
+      &:hover {
+        text-decoration: none;
+        cursor: auto;
+      }
+    }
+  }
+
+  @include for-sm-down {
+    margin: 16px 0 20px 0;
+  }
+}
+
+.gl-painting-hover-wrapper {
+  cursor: pointer;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    transition: background-color 200ms;
+  }
+
+  &:hover {
+    &:before {
+      background-color: #ffffff7a !important;
+    }
+
+    .gl-painting-hover-caption {
+      color: $main-hover-background;
+    }
+  }
+}
+
+.gl-application-link {
+  display: flex;
+  justify-content: center;
+}
+
+.gl-application-link-image {
+  width: 218px;
+  height: 64px;
+
+  &.mod-market-ios-en {
+    background-image: url('/assets/images/side-bar/market-ios-en.png');
+  }
+
+  &.mod-market-ios-ru {
+    background-image: url('/assets/images/side-bar/market-ios-ru.png');
+  }
+
+  &.mod-market-android {
+    background-image: url('/assets/images/side-bar/market-android.png');
+  }
+}

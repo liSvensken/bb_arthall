@@ -1,0 +1,68 @@
+<ng-container data-*ngIf="{
+  slideWidth: slideWidth$ | async,
+  lang: lang$ | async
+} as data;">
+  <div itemscope itemtype="http://schema.org/Painting"
+       class="content-wrapper"
+       appScrollPage
+       [ngStyle]="{
+     margin: (contentMargin$ | async) + 'px 0'
+     }">
+    <div data-data-*ngIf="!isBrowser" class="slider-fake"
+         [ngStyle]="{ marginBottom: sliderMarginBottom + 'px' }">
+      <div class="slide-fake"></div>
+      <div class="slide-fake mod-active"></div>
+      <div class="slide-fake"></div>
+
+      <a *ngFor="let painting of (paintingsList$ | async)"
+         class="gl-fake" [routerLink]="(['/', pageNameEnum.Artists, painting.artist.url || painting.artist.id] | dynamicLink) | async">
+        {{ painting.artist['name_' + data.lang] }}
+      </a>
+    </div>
+    <div data-data-*ngIf="isBrowser" class="slider-wrapper"
+         [ngStyle]="{ marginBottom: sliderMarginBottom + 'px' }">
+      <swiper [slidesPerView]="slidesPerView$ | async"
+              [virtual]="true"
+              [lazy]="true"
+              [spaceBetween]="spaceBetween$ | async"
+              [centeredSlides]="true"
+              (swiper)="initSwiper($event)"
+              (reachEnd)="onReachEnd()"
+              (slideChange)="onSlideChange()"
+              (realIndexChange)="onRealIndexChange()"
+              [initialSlide]="paintingSliderService.currentSlideNumber$ | async">
+        <ng-template *ngFor="let painting of (paintingsList$ | async); let index = index"
+                     swiperSlide>
+          <div class="slide-container">
+            <div class="slide-wrapper" (click)="slideTo(index)"
+                 appImageToSize
+                 [_imageWidth]="painting.size.width"
+                 [_imageHeight]="painting.size.height"
+                 [_requiredWidth$]="slideWidth$"
+                 [_requiredHeight$]="slideHeight$">
+              <img appLazyImg class="slide-image" [src]="apiBaseUrl + painting.webpack_file"
+                   [alt]="('ALT.PAINTING' | translate) + ' ' + painting['title_' + data.lang]">
+            </div>
+          </div>
+        </ng-template>
+      </swiper>
+    </div>
+
+    <div data-data-*ngIf="(currentPainting$ | async) as currentPainting"
+         class="gl-page-content">
+      <div data-data-*ngIf="data.slideWidth" class="description-wrapper"
+           [ngStyle]="{
+         width: data.slideWidth + 'px',
+         height: (descriptionHeight$ | async) + 'px'
+         }">
+        <app-paintings-info [painting]="currentPainting"
+                            [lang]="data.lang">
+        </app-paintings-info>
+
+        <app-paintings-rating [rating]="currentPainting.viewed ? currentPainting.viewed[0]?.rate : null"
+                              (clickRating)="clickRating($event)">
+        </app-paintings-rating>
+      </div>
+    </div>
+  </div>
+</ng-container>
